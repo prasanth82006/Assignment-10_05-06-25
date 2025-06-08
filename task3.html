@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Task 3</title>
+     <style>
+          .bg {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               min-height: 100vh;
+          }
+
+          .container {
+               background-color: beige;
+               display: flex;
+               flex-direction: column;
+               padding: 20px;
+               border-radius: 5px;
+               box-shadow: 0 1px 2px;
+               text-align: center;
+          }
+
+          h1 {
+               font-family: sans-serif;
+               font-style: italic;
+          }
+
+          img {
+               height: 50px;
+               background-color: rgb(99, 98, 98);
+               width: 100%;
+               border-right: 1px solid;
+               padding: 5px;
+          }
+
+          .moves-right {
+               display: flex;
+               justify-content: center;
+               padding: 0;
+               margin-bottom: 10px;
+               border-radius: 5px;
+               border: 1px solid;
+          }
+
+          button {
+               background-color: skyblue;
+               border: 0;
+               padding: 10px;
+               color: #fff;
+               font-weight: bold;
+               margin-bottom: 5px;
+               cursor: pointer;
+          }
+
+          label {
+               margin-right: 25px;
+               cursor: pointer;
+          }
+
+          a {
+               text-decoration: none;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="bg">
+          <div class="container">
+               <h1>Instagram</h1>
+               <form>
+                    <div class="moves-right">
+                         <img
+                              src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" />
+                         <input id="username" type="text" placeholder="Username" />
+                         <p id="usernameCheck"></p>
+                    </div>
+                    <div class="moves-right">
+                         <img
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD8qYZGg38bSsv5TJrrmU1thADd9-WNDd58Q&s" />
+                         <input id="password" type="password" placeholder="Password" />
+                         <p id="passwordCheck"></p>
+                    </div>
+               </form>
+               <button onclick="login()">Log In</button>
+               <div>
+                    <input type="checkbox" id="remember" />
+                    <label for="remember">Remember me </label>
+                    <a href="#">Forgot Password</a>
+               </div>
+          </div>
+          <p>Don't have an account! <a href="#">Sign up here</a></p>
+     </div>
+     <script>
+          let username = document.getElementById('username')
+          let password = document.getElementById('password')
+          let usernameCheck = document.getElementById('usernameCheck')
+          let passwordCheck = document.getElementById('passwordCheck')
+
+          function login() {
+               if (username.value === '') {
+                    usernameCheck.textContent = 'This field is required'
+                    usernameCheck.style.color = 'red'
+                    usernameCheck.style.fontWeight = 'bold'
+               }
+               else {
+                    usernameCheck.textContent = ''
+               }
+               if (password.value === '') {
+                    passwordCheck.textContent = 'This field is required'
+                    passwordCheck.style.color = 'red'
+                    passwordCheck.style.fontWeight = 'bold'
+               }
+               else if (password.value.length < 8) {
+                    passwordCheck.textContent = 'Minimum 8 characters required'
+                    passwordCheck.style.color = 'red'
+                    passwordCheck.style.fontWeight = 'bold'
+               } else {
+                    passwordCheck.textContent = ''
+               }
+          }
+     </script>
+</body>
+
+</html>
